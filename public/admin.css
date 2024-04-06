@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    /* font-family: "Outfit", sans-serif; */
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+body{
+    background-color: rgb(10,1,24);
+    font-family: "Outfit", sans-serif;
+    color: white;
+}
+
+#topNav{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid black;
+    padding-left: 8%;
+    padding-right: 8%;
+    background-color: rgb(7,1,16);
+    border-bottom: 0.5px solid white;
+    width: 85vw;
+    position: fixed;
+    z-index: 100;
+}
+
+.navItem{
+    color: white;
+    padding: 10px;
+    margin: 15px;
+    font-size: 1rem;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.navItem:hover{
+    color: rgb(255,127,194);
+}
+
+#logo{
+    background: #121FCF;
+background: linear-gradient(130deg, rgb(81, 175, 241), rgb(103, 135, 203),rgb(207, 56, 240),rgb(204, 105, 226));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+font-size: 1.5rem;
+font-family: 'Times New Roman', Times, serif;
+}
+
+
+#homepage {
+    
+    margin-left: auto;
+}
+
+.loginBtn{
+    color: white;
+    border-radius: 20px;
+    /* background: linear-gradient(130deg, rgb(101, 160, 248), rgb(105, 103, 203),rgb(207, 56, 240),rgb(185, 121, 199)); */
+    background: linear-gradient(120deg, #b47cfd 20%, #ff7fc2 60%);
+    transition: 0.5s;
+}
+
+.surveyBtn{
+    background-color: transparent;
+    outline: 1px solid white;
+    border-radius: 20px;
+}
+
+.loginBtn:hover{
+    background: transparent;
+    outline: 1px solid white;
+}
+
+.main{
+    display: flex;
+    padding-top: 100px;
+    /* border: 1px solid white; */
+}
+
+.mainItem:nth-child(1){
+    width: 25%;
+    /* border: 1px solid white; */
+}
+
+.mainItem:nth-child(2){
+    width: 75%;
+    margin-left: 25%;
+    /* border: 1px solid white; */
+}
+
+
+
+.survey{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid white; */
+    background-color: rgb(22, 3, 52);
+    border-radius: 20px;
+    margin: 15px;
+    margin-left: 0;
+}
+
+.survey > *{
+    padding:  10px 0;
+    
+}
+
+.btns{
+    display: flex;
+    gap: 20px;
+}
+
+.btns button{
+    /* background-color: rgb(28, 180, 28); */
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.details{
+    /* border: 1px solid white; */
+    border-radius: 20px;
+    background: radial-gradient(at top left, #56329080 0%, transparent 100%);
+}
+
+.option{
+    display: flex;
+    padding: 10px;
+}
+
+.optionBar{
+    position: relative;
+    background-color: black;
+    width: 400px;
+    border-radius: 20px;
+}
+
+.optionBarFill{
+    /* z-index: 10; */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    /* width: 50%; */
+    border-radius: 20px;
+    background :linear-gradient(90deg,#b47cfd 0%, #ff7fc2 100%);
+}
+
+.optValue{
+    width:100px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+button{
+    cursor: pointer;
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: fixed;
+}
+
+.icon i{
+    font-size: 8rem;
+}
+
+#aihelp {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+.helpbox{
+    display: flex;
+    gap: 10px;
+    /* border: 1px solid white; */
+    
+}
+
+.helpbox input{
+    padding: 5px;
+    border-radius: 15px;
+    border: none;
+    flex-grow: 2;
+}
+
+.helpbox button{
+    border-radius: 20px;
+    padding: 5px;
+    border: none;
+    font-weight: bold;
+    background :linear-gradient(90deg,#b47cfd 0%, #ff7fc2 100%);
+    color: white;
+}
+
+#aihelp > *{
+    margin: 10px 0;
+}
+
+#helpPara{
+    /* border: 1px solid white; */
+    border-radius:20px ;
+    padding: 10px;
+    text-align: justify;
+    background-image: radial-gradient(at top left, #574c6980 0%, #110625 100%);
+}
+
+@media screen and (max-width : 600px){
+    .main{
+        flex-direction: column;
+    }
+
+    .mainItem{
+        width: 100% !important;
+    }
+
+    .mainItem:nth-child(1){
+        height: 100px;
+        margin: 20px;
+    }
+
+    .mainItem:nth-child(2) {
+        margin: 20px;
+    }
+
+    .icon{
+        position: relative;
+        height: 100px;
+    }
+}
