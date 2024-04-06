@@ -87,4 +87,136 @@ app.get("/user", async (req, res) => {
     }
 });
 
-// harshgit
+    
+
+    // try{
+    //     connection.query(q,(err,result)=>{
+    //         if(err) throw err;
+    //         // console.log(result);
+    //         res.render("user.ejs", {userCredits,result,message,msgId})
+    //         // console.log(message);
+    //     })
+    // } catch(err) {
+    //     res.send(err);
+    // }
+    toggleMsg = true;
+// })
+
+app.get("/register",(req,res)=>{
+    res.render("admin_red.ejs");
+})
+
+app.post("/register", (req,res)=>{
+    let compId = uuid().slice(0,8);
+    // console.log(compId);
+    companyId = compId;
+
+    let q1 = `INSERT INTO loginData VALUES ("${compId}", "${req.body.company}", "${req.body.email}", "${req.body.password}");`
+    compName = req.body.company;
+
+    connection.query(q1,(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        // res.redirect("/admin");
+    })
+
+    let q2 = `CREATE TABLE comp${compId} (id varchar(100) PRIMARY KEY,question varchar(500),opt1 varchar(100),opt2 varchar(100),opt3 varchar(100),opt4 varchar(100),opt1value int,opt2value int,opt3value int,opt4value int,company varchar(100), compId varchar(100))`
+
+    connection.query(q2,(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.redirect(`/admin/${compId}`)
+    })
+
+})
+
+app.get("/about",(req,res)=>{
+    res.render("about.ejs");
+})
+
+app.get("/contact",(req,res)=>{
+    res.render("contact.ejs");
+})
+
+app.get("/admin/:compId",async (req,res)=>{
+
+    // let q = `SELECT * FROM comp${companyId}`;
+    let compId = req.params.compId;
+    // let compName = 'a';
+    // console.log(compId1);
+
+    let q = `SELECT company from logindata WHERE id="${compId}"`
+    // connection.query(q,(err,result)=>{
+    //     compName = result[0].company
+    // });
+
+
+    const compName = await new Promise((resolve, reject) => {
+        connection.query(q, (err, result) => {
+            if (err) reject(err);
+            resolve(result[0].company);
+        });
+    });
+
+    // console.log(compName);
+
+    let q1 = `SELECT * FROM comp${compId}`;
+
+    try{
+        connection.query(q1,(err,result)=>{
+            if(err) throw err;
+            // console.log(result);
+            res.render("admin.ejs", {result, compName, compId,helpMsg});
+            if(helpMsg != "" || helpMsg != " ") {
+                helpMsg = "";
+            }
+        })
+    } catch(err) {
+        res.send(err);
+    }
+
+    
+    
+
+    
+})
+
+app.delete("/delete/:compId/:id", (req,res)=>{
+    let id = req.params.id;
+
+    // res.send("Delete")
+
+    let q = `DELETE FROM comp${req.params.compId} WHERE id = "${id}"`;
+
+    try{
+        connection.query(q,(err,result)=>{
+            if(err) throw err;
+            console.log(result);
+            res.redirect(`/admin/${req.params.compId}`);
+        })
+    } catch(err) {
+        res.send(err);
+    }
+})
+
+app.post("/submit/:compId/:id", (req,res)=>{
+    userCredits += 10;
+    console.log(req.params);
+    let id = req.params.id;
+    let answer = req.body[`ans${id}`];
+
+    let q = `UPDATE comp${req.params.compId}
+    SET ${answer}value = ${answer}value + 1
+    WHERE id  = "${id}";`
+
+    try{
+        connection.query(q, (err,result) =>{
+            if(err) throw err;
+            console.log(result);
+            res.redirect("/user")
+        })
+    }catch(err) {
+        res.send(err);
+    }
+    // res.send("OK")
+})
