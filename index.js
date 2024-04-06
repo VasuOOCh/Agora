@@ -21,7 +21,7 @@ let message = "";
 let msgId = "";
 let helpMsg = "";
 const anthropic = new Anthropic({
-    apiKey: 'API key', // Enter your API key
+    apiKey: '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', // This is the default and can be omitted
     });
 
 async function answer(ques) {
@@ -41,7 +41,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     database: 'agora',
-    password : "password" //Enter your password of MySQL server
+    password : "@Harshit0511"
   });
 
 app.get("/",(req,res)=>{
@@ -181,6 +181,88 @@ app.get("/admin/:compId",async (req,res)=>{
 
     
 })
+
+//from here
+
+app.delete("/delete/:compId/:id", (req,res)=>{
+    let id = req.params.id;
+
+    // res.send("Delete")
+
+    let q = `DELETE FROM comp${req.params.compId} WHERE id = "${id}"`;
+
+    try{
+        connection.query(q,(err,result)=>{
+            if(err) throw err;
+            console.log(result);
+            res.redirect(`/admin/${req.params.compId}`);
+        })
+    } catch(err) {
+        res.send(err);
+    }
+})
+
+app.post("/submit/:compId/:id", (req,res)=>{
+    userCredits += 10;
+    console.log(req.params);
+    let id = req.params.id;
+    let answer = req.body[`ans${id}`];
+
+    let q = `UPDATE comp${req.params.compId}
+    SET ${answer}value = ${answer}value + 1
+    WHERE id  = "${id}";`
+
+    try{
+        connection.query(q, (err,result) =>{
+            if(err) throw err;
+            console.log(result);
+            res.redirect("/user")
+        })
+    }catch(err) {
+        res.send(err);
+    }
+    // res.send("OK")
+})
+app.get("/new/:compId",(req,res)=>{
+    let compId = req.params.compId;
+    res.render("new.ejs",{compId});
+})
+
+app.post("/new/:compId", async (req,res)=>{
+    let compId = req.params.compId;
+    // console.log(req.body);
+
+    let q1 = `SELECT * FROM logindata WHERE id="${compId}"`
+    const compName = await new Promise((resolve, reject) => {
+        connection.query(q1, (err, result) => {
+            if (err) reject(err);
+            console.log(result)
+            resolve(result[0].company);
+        });
+    });
+
+
+    let q = `INSERT INTO comp${compId} VALUES ('${uuid()}','${req.body.question}','${req.body.opt1}','${req.body.opt2}','${req.body.opt3}','${req.body.opt4}', 0,0,0,0, "${compName}", "${compId}")`
+
+    // const compName = await new Promise((resolve, reject) => {
+    //     connection.query(q, (err, result) => {
+    //         if (err) reject(err);
+    //         resolve(result[0].company);
+    //     });
+    // });
+
+    connection.query(q, (err,result)=>{
+        if(err) throw err;
+        // console.log(result);
+
+        res.redirect(`/admin/${compId}`);
+    })
+
+
+    
+})
+
+
 
 
 
