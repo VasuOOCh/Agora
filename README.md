@@ -8,7 +8,7 @@ Below is the documentation for using agora analytics on localhost PC
 1) NodeJS
 2) MySQL community server
 3) MySQL workbench
-4) 
+
 (Make sure to add the path of MySQL bin folder)
 
 ### Setting up MySQL
