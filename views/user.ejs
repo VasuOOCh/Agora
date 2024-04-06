@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="user.css">
+</head>
+<body>
+    <nav id="topNav">
+        <a href="/" id="logo">AGORA</a>
+        <a href="/" class="navItem" id="homepage">Homepage</a>
+        <a href="/about" class="navItem">About us</a>
+        <a href="/contact" class="navItem">Contact us</a>
+        <a href="/login" class="loginBtn navItem">Admin login</a>
+        <a href="/credit" class="creditBtn navItem">Redeem credits <%= userCredits %> </a>
+    </nav>
+
+    <div class="main">
+        <div class="mainItem icon">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </div>
+        <div class="mainItem">
+            <h2>Answer the surveys</h2>
+
+            <% for(let i=0;i<result.length;i++) { %>
+
+                <% if(result[i] != undefined) {%>
+
+                <div class="survey">
+
+                    
+
+                        <form action="/submit/<%=result[i].compId %>/<%= result[i].id %>" method="post" id="surveyForm">
+                            <h4>Survey by : <%= result[i].company %></h4>
+                            <h2><%= result[i].question %></h2>
+        
+                            <div class="options">
+                                <div class="option"><input type="radio" name="ans<%=result[i].id %>" value="opt1">
+                                    <label for="opt1"><%= result[i].opt1 %></label>
+                                </div>
+                                <div class="option"><input type="radio" name="ans<%=result[i].id %>" value="opt2">
+                                    <label for="opt2"><%= result[i].opt2 %></label>
+                                </div>
+                                <div class="option"><input type="radio" name="ans<%=result[i].id %>" value="opt3">
+                                    <label for="opt3"><%= result[i].opt3 %></label>
+                                </div>
+                                <div class="option"><input type="radio" name="ans<%=result[i].id %>" value="opt4">
+                                    <label for="opt4"><%= result[i].opt4 %></label>
+                                </div>
+                            </div>
+        
+                            <div class="btns">
+                                <button type="submit" style="background-color: rgb(39, 188, 39);">Submit</button>
+                            </div>
+        
+                        </form>
+        
+                        <form action="/ans/<%=result[i].compId %>/<%=result[i].id %>" method="post">
+                                <button id="aiBtn">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                    AI explain
+                                </button>
+                        </form>
+        
+                        <p class="msg">
+                                <% if(result[i].id == msgId) { %>
+                                    <%= message %>
+                                <% } %>
+                                <button class="clear" style="display: none;">Clear</button>
+                        </p>
+                </div>
+
+                <% } %>
+
+            <% } %>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/b51a57a65a.js" crossorigin="anonymous"></script>
+
+    <script>
+        let msgs = document.querySelectorAll(".msg");
+        let clears = document.querySelectorAll(".clear")
+
+        for(let i=0;i<msgs.length;i++) {
+            if(msgs[i].innerText != "" && msgs[i].innerText != " ") {
+                clears[i].style.display = "block";
+            }
+        }
+
+        for(let i = 0;i<clears.length;i++){
+            clears[i].addEventListener("click", ()=>{
+                msgs[i].innerText = "";
+            })
+        }
+    </script>
+
+</body>
+</html>

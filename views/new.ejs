@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New survey</title>
+    <link rel="stylesheet" href="/new.css">
+</head>
+<body>
+    <div class="main">
+
+        <button id="admin">
+            <a href="http://localhost:3000/admin/<%= compId %>">Back to Admin portal</a>
+        </button>
+
+        <form action="/new/<%= compId %>"  method="post">
+            <h2>New survey</h2>
+            <input type="text" id="question" name="question" placeholder="Enter the question" autocomplete="off">
+
+            <input type="text" class="option" name="opt1" id="opt1" placeholder="Option 1" autocomplete="off">
+            <input type="text" class="option" name="opt2" id="opt2" placeholder="Option 2" autocomplete="off">
+            <input type="text" class="option" name="opt3" id="opt3" placeholder="Option 3" autocomplete="off">
+            <input type="text" class="option" name="opt4" id="opt4" placeholder="Option 4" autocomplete="off">
+            <button type="submit">Submit</button>
+        </form>
+        
+        
+    </div>
+</body>
+</html>
