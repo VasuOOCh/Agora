@@ -5,9 +5,9 @@ Below is the documentation for using agora analytics on localhost PC
 ## Pre-requisites
 
 ### Must needed downloads
-1) NodeJS
-2) MySQL community server
-3) MySQL workbench
+1) [NodeJS](https://nodejs.org/en/download)
+2) [MySQL community server](https://dev.mysql.com/downloads/mysql/)
+3) [MySQL workbench](https://dev.mysql.com/downloads/workbench/)
 
 (Make sure to add the path of MySQL bin folder)
 
