@@ -43,6 +43,7 @@ const anthropic = new Anthropic({
     apiKey: 'Enter your API key here', // Enter your Claude AI key
     });
 ```
+[Get your Claude AI API here](https://www.anthropic.com/api)
 ```javascript
 const connection = mysql.createConnection({
     host: 'localhost',
