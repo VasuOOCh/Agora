@@ -264,7 +264,9 @@ app.post("/new/:compId", async (req,res)=>{
 
 
 
-
+app.get("/credit",(req,res)=>{
+    res.render("credits.ejs", {userCredits})
+})
 
 app.listen(3000,(req,res)=>{
     console.log("Port started at 3000");
