@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeem credits</title>
+    <link rel="stylesheet" href="/credit.css">
+</head>
+<body>
+    <nav id="topNav">
+        <a href="/" id="logo">AGORA</a>
+        <a href="/" class="navItem" id="homepage">Homepage</a>
+        <a href="/about" class="navItem">About us</a>
+        <a href="/contact" class="navItem">Contact us</a>
+        <a href="/user" class="loginBtn navItem">Back to user portal</a>
+        <a href="#" class="creditBtn navItem">Your Credits <%= userCredits %> </a>
+    </nav>
+    
+    <div class="main">
+        <h2>You have a total of <span id="credit"><%= userCredits %></span> credit points <br> Redeem to earn rewards</h2>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <img src="/images/amazon.png" alt="#">
+            <h4>Amazon gift card $10</h4>
+            <h5>5000 pts</h5>
+        </div>
+        <div class="card">
+            <img src="/images/filpcard.png" alt="#">
+            <h4>Flipcard gift card $10</h4>
+            <h5>4000 pts</h5>
+        </div>
+        <div class="card">
+            <img src="/images/myntra.png" alt="#">
+            <h4>Myntra gift card $12</h4>
+            <h5>5000 pts</h5>
+        </div>
+        <div class="card">
+            <img src="/images/google_play.png" alt="#">
+            <h4>Google play gift card $15</h4>
+            <h5>6500 pts</h5>
+        </div>
+        <div class="card">
+            <img src="/images/trends.png" alt="#">
+            <h4>Reliance trends gift card $5</h4>
+            <h5>3000 pts</h5>
+        </div>
+        <div class="card">
+            <img src="/images/spotify.png" alt="#">
+            <h4>Spotify 3 months premium</h4>
+            <h5>4000 pts</h5>
+        </div>
+    </div>
+</body>
+</html>
