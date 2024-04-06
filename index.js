@@ -21,7 +21,7 @@ let message = "";
 let msgId = "";
 let helpMsg = "";
 const anthropic = new Anthropic({
-    apiKey: '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', // This is the default and can be omitted
+    apiKey: 'API key here', //Enter API key here
     });
 
 async function answer(ques) {
@@ -41,7 +41,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     database: 'agora',
-    password : "@Harshit0511"
+    password : "password" //Enter password of MySQL server
   });
 
 app.get("/",(req,res)=>{
