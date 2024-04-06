@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | <%= compName %></title>
+    <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+    <nav id="topNav">
+        <a href="/" id="logo">AGORA</a>
+        <a href="/" class="navItem" id="homepage" >Homepage</a>
+        <a href="/about" class="navItem">About us</a>
+        <a href="/contact" class="navItem">Contact us</a>
+        <a href="http://localhost:3000/user" class="loginBtn navItem">User login</a>
+        <a href="/new/<%= compId %>" class="surveyBtn navItem">New survery</a>
+    </nav>
+
+    <div class="main">
+        <div class="mainItem icon">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        </div>
+        <div class="mainItem">
+            <h2>Welcome <%= compName %></h2>
+
+            <form action="/help/<%=compId %>" method="post" id="aihelp">
+                <div class="helpbox">
+                    <input type="text" placeholder="Ask AI for help" name="help">
+                <button>Submit</button>
+                </div>
+                <p id="helpPara">
+                    <%= helpMsg %>
+                </p>
+            </form>
+
+            <% for(let i = 0; i<result.length;i++) { %>
+                <div class="surveys">
+                    <div class="survey">
+                        
+                        <h2><%= result[i].question %></h2>
+                        <h3>ID : <%= result[i].id %></h3>
+
+                        <div class="details" style="display: none;">
+                            <div class="option">
+                                <div class="optValue"><%= result[i].opt1 %></div>
+                                <div class="optionBar"> 
+                                    <div class="optionBarFill fill1_<%=result[i].id %>"></div>
+                                </div>
+                                <div class="optNumber" style="margin-left: 10px;">
+                                    <%= result[i].opt1value  %>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <div class="optValue"><%= result[i].opt2 %></div>
+                                <div class="optionBar">
+                                    <div class="optionBarFill fill2_<%=result[i].id %>"></div>
+                                </div>
+                                <div class="optNumber" style="margin-left: 10px;">
+                                    <%= result[i].opt2value  %>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <div class="optValue"><%= result[i].opt3 %></div>
+                                <div class="optionBar">
+                                    <div class="optionBarFill fill3_<%=result[i].id %>"></div>
+                                </div>
+                                <div class="optNumber" style="margin-left: 10px;">
+                                    <%= result[i].opt3value  %>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <div class="optValue"><%= result[i].opt4 %></div>
+                                <div class="optionBar">
+                                    <div class="optionBarFill fill4_<%=result[i].id %>"></div>
+                                </div>
+                                <div class="optNumber" style="margin-left: 10px;">
+                                    <%= result[i].opt4value  %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btns">
+                            <button class="detailsBtn" style="background-color: rgb(39, 188, 39);">View details</button>
+                            <form action="/delete/<%=result[i].compId %>/<%= result[i].id %>?_method=DELETE" method="post">
+                                <button style="background-color: rgb(236, 46, 46);">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+
+        </div>
+    </div>
+
+    <script>
+        let viewDetail = document.querySelectorAll(".detailsBtn");
+        let details = document.querySelectorAll(".details")
+        
+
+    for(let i=0;i<viewDetail.length;i++) {
+            let toggle = false;
+            viewDetail[i].addEventListener("click", ()=>{
+            console.log("Clicked");
+            if(toggle == false){
+                toggle = true;
+                details[i].style.display = "block";
+                viewDetail[i].innerText = "Hide details"
+            }
+            else{
+                toggle = false;
+                details[i].style.display = "none";
+                viewDetail[i].innerText = "View details"
+            }
+        })
+    }
+
+    let result = <%- JSON.stringify(result)%>;
+
+    for(let i = 0; i<result.length;i++) {
+
+            let val1 = result[i].opt1value / (result[i].opt1value + result[i].opt2value + result[i].opt3value +result[i].opt4value)*100;
+            let val2 = result[i].opt2value / (result[i].opt1value + result[i].opt2value + result[i].opt3value +result[i].opt4value)*100;
+            let val3 = result[i].opt3value / (result[i].opt1value + result[i].opt2value + result[i].opt3value +result[i].opt4value)*100;
+            let val4 = result[i].opt4value / (result[i].opt1value + result[i].opt2value + result[i].opt3value +result[i].opt4value)*100;
+            document.querySelector(`.fill1_${result[i].id}`).style.width = `${val1}` + "%";
+            document.querySelector(`.fill2_${result[i].id}`).style.width = `${val2}` + "%";
+            document.querySelector(`.fill3_${result[i].id}`).style.width = `${val3}` + "%";
+            document.querySelector(`.fill4_${result[i].id}`).style.width = `${val4}` + "%";
+    }
+
+    
+
+    
+    </script>
+    <script src="https://kit.fontawesome.com/b51a57a65a.js" crossorigin="anonymous"></script>
+</body>
+</html>
