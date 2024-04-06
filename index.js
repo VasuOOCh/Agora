@@ -264,6 +264,82 @@ app.post("/new/:compId", async (req,res)=>{
 
 
 
+app.post("/help/:compId", (req,res)=>{
+    let msg = req.body.help;
+
+    try{
+        answer(`${msg}`).then((resp)=>{
+            helpMsg = resp;
+    
+            res.redirect(`/admin/${req.params.compId}`);
+        })
+    } catch{
+        res.send("Servers are too busy ! You may try again later")
+    }
+    
+   
+})
+
+app.post("/ans/:compId/:id", (req,res)=>{
+    let id = req.params.id;
+    let compId = req.params.compId;
+    let q1 = `SELECT question,id from comp${compId}`;
+
+    try{
+        connection.query(q1,(err,result1)=>{
+            if(err) throw err;
+            // let question = result1[0].question;
+    
+            answer(`Explain the question : ${result1[0].question} in simple terms`).then((resp)=>{
+    
+                message = resp;
+                msgId = result1[0].id;
+                // console.log(message);
+                res.redirect("/user");
+            })
+    
+        })
+    }
+    catch{
+        res.send("Servers are too busy, you may try again later")
+    }
+    
+    
+})
+
+app.get("/login", (req,res)=>{
+    res.render("login.ejs");
+})
+
+app.post("/login",(req,res)=>{
+    let isValid = false;
+    let email = req.body.email;
+    let pass = req.body.password;
+
+    let q = `SELECT * FROM logindata`
+
+    connection.query(q, (err,result)=>{
+        if(err) throw err;
+        for(let i=0;i<result.length;i++) {
+            if(result[i].email === email) {
+                    if(result[i].pass === pass) {
+                        isValid = true;
+                        res.redirect(`admin/${result[i].id}`);
+                    }
+            }
+        }
+        if(isValid == false) {
+            res.send("Wrong credentials");
+        }
+        
+        
+    })
+
+    // res.send("Authorised");
+})
+
+
+
 app.get("/credit",(req,res)=>{
     res.render("credits.ejs", {userCredits})
 })
