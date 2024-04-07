@@ -73,6 +73,7 @@ Please make sure to update tests as appropriate.
 ## Interface of the Web
 ### HOME PAGE
 <img width="960" alt="Screenshot 2023-04-16 153839" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/homepage.png">
+<img width="960" alt="Screenshot 2023-04-16 153839" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/home2.png">
 
 ## ABOUT PAGE
 <img width="960" alt="Screenshot 2023-04-16 153918" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/about1.png">
