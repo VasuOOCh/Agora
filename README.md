@@ -71,8 +71,10 @@ Please make sure to update tests as appropriate.
 5) mysql2: "^3.9.2"
 6) uuidv4: "^6.2.13"
 ### Interface of the Web
-<img width="960" alt="Screenshot 2023-04-16 153839" src="https://github.com/VasuOOCh/Agora/blob/main/Public/images/img1.jpg">
-<img width="960" alt="Screenshot 2023-04-16 153918" src="https://user-images.githubusercontent.com/112328989/232295540-02b53622-0005-428f-a19b-6e4b0370055f.png">
-<img width="960" alt="Screenshot 2023-04-16 153945" src="https://user-images.githubusercontent.com/112328989/232295545-adbe7c1b-537d-4bdf-9abc-8ddb53ae5d65.png">
-<img width="960" alt="Screenshot 2023-04-16 154002" src="https://user-images.githubusercontent.com/112328989/232295551-c3303a53-de61-469b-917d-4c40dbc08e8c.png">
-<img width="960" alt="Screenshot 2023-04-16 154025" src="https://user-images.githubusercontent.com/112328989/232295558-799d0f82-c676-4fd4-8f48-7339dbc46105.png">
+<img width="960" alt="Screenshot 2023-04-16 153839" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/homepage.png">
+<img width="960" alt="Screenshot 2023-04-16 153918" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/about1.png">
+<img width="960" alt="Screenshot 2023-04-16 153945" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/about2.png">
+<img width="960" alt="Screenshot 2023-04-16 154002" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/contactpage.png">
+<img width="960" alt="Screenshot 2023-04-16 154025" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/creditpage.png">
+<img width="960" alt="Screenshot 2023-04-16 154002" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/login.png">
+<img width="960" alt="Screenshot 2023-04-16 154025" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/register.png">
