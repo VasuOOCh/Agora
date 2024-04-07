@@ -21,7 +21,7 @@ let message = "";
 let msgId = "";
 let helpMsg = "";
 const anthropic = new Anthropic({
-    apiKey: 'APIKEY', // fill your api key 
+    apiKey: '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', // This is the default and can be omitted
     });
 
 async function answer(ques) {
@@ -41,7 +41,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     database: 'agora',
-    password : "password" // type your mysql workbench password
+    password : "Vasu@12042005"
   });
 
 app.get("/",(req,res)=>{
@@ -143,13 +143,8 @@ app.get("/admin/:compId",async (req,res)=>{
 
     // let q = `SELECT * FROM comp${companyId}`;
     let compId = req.params.compId;
-    // let compName = 'a';
-    // console.log(compId1);
 
     let q = `SELECT company from logindata WHERE id="${compId}"`
-    // connection.query(q,(err,result)=>{
-    //     compName = result[0].company
-    // });
 
 
     const compName = await new Promise((resolve, reject) => {
@@ -181,8 +176,6 @@ app.get("/admin/:compId",async (req,res)=>{
 
     
 })
-
-//from here
 
 app.delete("/delete/:compId/:id", (req,res)=>{
     let id = req.params.id;
@@ -223,6 +216,7 @@ app.post("/submit/:compId/:id", (req,res)=>{
     }
     // res.send("OK")
 })
+
 app.get("/new/:compId",(req,res)=>{
     let compId = req.params.compId;
     res.render("new.ejs",{compId});
@@ -339,7 +333,6 @@ app.post("/login",(req,res)=>{
 })
 
 
-
 app.get("/credit",(req,res)=>{
     res.render("credits.ejs", {userCredits})
 })
@@ -348,3 +341,4 @@ app.listen(3000,(req,res)=>{
     console.log("Port started at 3000");
     // console.log(uuid());
 })
+

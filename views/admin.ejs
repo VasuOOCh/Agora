@@ -14,6 +14,14 @@
         <a href="/contact" class="navItem">Contact us</a>
         <a href="http://localhost:3000/user" class="loginBtn navItem">User login</a>
         <a href="/new/<%= compId %>" class="surveyBtn navItem">New survery</a>
+        <a href="#" id="checkbox"><label for="check"><i class="fa fa-bars" aria-hidden="true" style="color: white;"></i></label></a>
+        <input type="checkbox" id="check" name="check" style="display: none;">
+    </nav>
+    <nav class="sideNav">
+        <a href="/about" class="sideItem">About us</a>
+        <a href="/contact" class="sideItem">Contact us</a>
+        <a href="http://localhost:3000/user" class="loginBtn sideItem">User login</a>
+        <a href="/new/<%= compId %>" class="loginBtn sideItem">New survey</a>
     </nav>
 
     <div class="main">
@@ -128,7 +136,18 @@
     }
 
     
-
+    let toggle = false
+        document.querySelector("#check").addEventListener("click", ()=>{
+            console.log("clicked")
+            if(toggle == false) {
+                document.querySelector(".sideNav").style.height = "auto";
+                toggle = true
+            }
+            else{
+                document.querySelector(".sideNav").style.height = "0vh"
+                toggle = false;
+            }
+        })
     
     </script>
     <script src="https://kit.fontawesome.com/b51a57a65a.js" crossorigin="anonymous"></script>
