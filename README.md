@@ -2,7 +2,7 @@
 
 Below is the documentation for using agora analytics on localhost PC 
 
-Demo Video | AGORA](https://www.youtube.com/watch?v=tKQh_WRWoJs)
+[Demo Video | AGORA](https://www.youtube.com/watch?v=tKQh_WRWoJs)
 
 ## Pre-requisites
 
