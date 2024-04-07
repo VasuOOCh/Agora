@@ -81,11 +81,17 @@ Please make sure to update tests as appropriate.
 ## CONTACT US PAGE
 <img width="960" alt="Screenshot 2023-04-16 154002" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/contactpage.png">
 
-## CREDIT SCORE PAGE
-<img width="960" alt="Screenshot 2023-04-16 154025" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/creditpage.png">
-
 ## REGISTRATION PAGE
 <img width="960" alt="Screenshot 2023-04-16 154025" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/register.png">
 
 ## LOGIN PAGE
 <img width="960" alt="Screenshot 2023-04-16 154002" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/login.png">
+
+## USER PAGE
+<img width="960" alt="Screenshot 2023-04-16 154002" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/user.jpeg">
+
+## ADMIN PAGE
+<img width="960" alt="Screenshot 2023-04-16 154002" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/admin_page.png">
+
+## CREDIT SCORE PAGE
+<img width="960" alt="Screenshot 2023-04-16 154025" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/creditpage.png">
