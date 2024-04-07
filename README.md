@@ -73,14 +73,19 @@ Please make sure to update tests as appropriate.
 ## Interface of the Web
 ### HOME PAGE
 <img width="960" alt="Screenshot 2023-04-16 153839" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/homepage.png">
-ABOUT PAGE
+
+## ABOUT PAGE
 <img width="960" alt="Screenshot 2023-04-16 153918" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/about1.png">
 <img width="960" alt="Screenshot 2023-04-16 153945" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/about2.png">
-CONTACT US PAGE
+
+## CONTACT US PAGE
 <img width="960" alt="Screenshot 2023-04-16 154002" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/contactpage.png">
-CREDIT SCORE PAGE
+
+## CREDIT SCORE PAGE
 <img width="960" alt="Screenshot 2023-04-16 154025" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/creditpage.png">
-REGISTRATION PAGE
+
+## REGISTRATION PAGE
 <img width="960" alt="Screenshot 2023-04-16 154025" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/register.png">
-LOGIN PAGE
+
+## LOGIN PAGE
 <img width="960" alt="Screenshot 2023-04-16 154002" src="https://github.com/VasuOOCh/Agora/blob/main/screenshot_of_web/login.png">
